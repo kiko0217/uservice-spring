@@ -8,6 +8,7 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
   <groupId>com.uservice</groupId>
+  <packaging>jar</packaging>
   <artifactId>user</artifactId>
   <version>1.0-SNAPSHOT</version>
   <name>user</name>
@@ -17,6 +18,13 @@
     <maven.compiler.target>17</maven.compiler.target>
   </properties>
   <dependencies>
+
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+      <version>3.1.3</version>
+    </dependency>
+
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
