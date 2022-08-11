@@ -1,4 +1,4 @@
-package com.uservice;
+package com.uservice.client.fraud;
 
 public record FraudCheckResponse(
   boolean isFraudster
