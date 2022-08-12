@@ -3,3 +3,4 @@ mvn archetype:generate -DgroupId=com.uservice -DartifactId=fraud -DinteractiveMo
 mvn archetype:generate -DgroupId=com.uservice -DartifactId=eureka-server -DinteractiveMode=false
 mvn archetype:generate -DgroupId=com.uservice -DartifactId=client -DinteractiveMode=false
 mvn archetype:generate -DgroupId=com.uservice -DartifactId=notification -DinteractiveMode=false
+mvn archetype:generate -DgroupId=com.uservice -DartifactId=apigw -DinteractiveMode=false
