@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 
 import com.uservice.client.fraud.FraudCheckResponse;
 import com.uservice.client.fraud.FraudClient;
+import com.uservice.client.notification.NotificationClient;
+import com.uservice.client.notification.NotificationRequest;
 
 import lombok.AllArgsConstructor;
 
@@ -11,6 +13,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class CustomerService{
   private final CustomerRepository customerRepository;
+  private final NotificationClient notificationClient;
   private final FraudClient fraudClient;
   public void registerCustomer(CustomerRegistrationRequest request) {
     Customer customer = Customer.builder()
@@ -23,5 +26,12 @@ public class CustomerService{
     if(fraudCheckResponse != null && fraudCheckResponse.isFraudster()) {
       throw new IllegalStateException("fraudster");
     }
+    notificationClient.sendNotification(
+      new NotificationRequest(
+        customer.getId(),
+        customer.getEmail(),
+        String.format("Hi %s, welcomer to uservice...", customer.getFirstName())
+      )
+    );
   }
 }
